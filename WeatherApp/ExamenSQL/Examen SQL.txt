@@ -1,5 +1,5 @@
 2)select nombre,edad from estudiante
-3)select nombre from estudiante where carrera='e Informática'
+3)select nombre from estudiante where carrera='Informática'
 4)SELECT nombre FROM estudiante WHERE nombre LIKE 'G%' 
 9)
 SELECT nombre FROM estudiante WHERE edad IN(SELECT min(edad) FROM estudiante)
