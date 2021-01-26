@@ -11,6 +11,10 @@ namespace Weather.WebApi.Controllers
     public class PaisController : ApiController
     {
         AmericaVirtual_WeatherEntities db = new AmericaVirtual_WeatherEntities();
+        /// <summary>
+        /// Obtiene todos los paises
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<Paises> Get()
         {
