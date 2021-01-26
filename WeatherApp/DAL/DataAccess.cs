@@ -8,8 +8,15 @@ namespace WeatherApp.DAL
 {
     public static class DataAccess
     {
+        /// <summary>
+        /// Setea la conexion al servicio
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="apiname"></param>
+        /// <returns></returns>
         public static string setConnection(string uri, string apiname)
         {
+
             var resultString = "";
             try
             {

@@ -15,7 +15,10 @@ namespace WeatherApp.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// Obtiene todos los paises
+        /// </summary>
+        /// <returns></returns>
         public JsonResult GetPaises()
         {
             string urlServicio = WebConfigurationManager.AppSettings["urlServicio"];
@@ -23,6 +26,11 @@ namespace WeatherApp.Controllers
             var listaPaises = JsonConvert.DeserializeObject<List<Paises>>(result);
             return Json(listaPaises, JsonRequestBehavior.AllowGet);
         }
+        /// <summary>
+        /// Obtiene las ciudades dado un determinado pais
+        /// </summary>
+        /// <param name="idPais"></param>
+        /// <returns></returns>
         public JsonResult GetCiudades(int idPais)
         {
             string urlServicio = WebConfigurationManager.AppSettings["urlServicio"];
@@ -30,6 +38,12 @@ namespace WeatherApp.Controllers
             var listaCiudades = JsonConvert.DeserializeObject<List<Ciudades>>(result);
             return Json(listaCiudades, JsonRequestBehavior.AllowGet);
         }
+        /// <summary>
+        /// Obtiene el clima de la semana correspondiente a un pais y una ciudad
+        /// </summary>
+        /// <param name="idPais"></param>
+        /// <param name="idCiudad"></param>
+        /// <returns></returns>
 
         public JsonResult GetClimaPorPaisCiudad(int idPais, int idCiudad)
         {

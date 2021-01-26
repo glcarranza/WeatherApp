@@ -184,6 +184,7 @@
                         //Obtengo el dia actual
                         var diaActual = GetDiaActual();
                         for (var i = 0; i < data.length; i++) {
+                            //Si el dia actual es igual al elemento del array seteo los datos en el panel de reporte
                             if (diaActual == data[i].Dia.trim()) {
                                 $("#paisactual").text($("#pais option:selected").html());
                                 $("#ciudadactual").text($("#ciudad option:selected").html());
@@ -200,6 +201,7 @@
 
 
                             }
+                            //por cada dia seteo los datos en el panel inferior
                             if (data[i].Dia.trim() == "LUNES") {
                                 $("#lunes").text(data[i].Dia.trim());
                                 var newSrc = "Images/" + data[i].Icono.trim() + ".png";
@@ -241,8 +243,10 @@
             })
         })
         function iniciarSesion() {
+            //Verifico que las credenciales sean correctas, sino muestro error
             var form = $(".login-form");
             if ($("#Username").val() == "americavirtual@gmail.com" && $("#Password").val() == "123") {
+                //guardo los datos en el localstorage, oculto el form de login y habilito el boton buscar
                         localStorage.setItem('Usuario', $("#Username").val());
                         localStorage.setItem('Password', $("#Password").val());
                         form.fadeOut();
@@ -254,6 +258,7 @@
                     }
         }
         function GetDiaActual() {
+            //retorno el nombre del dia
             var d = new Date();
             var n = d.getDay()
             switch (n) {
