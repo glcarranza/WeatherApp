@@ -122,6 +122,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
+           
             var form = $(".login-form");
             var status = false;
             $("#login").click(function (event) {
@@ -246,6 +247,7 @@
                         localStorage.setItem('Password', $("#Password").val());
                         form.fadeOut();
                         $("#lblWelcome").text("Bienvenido: " + localStorage.getItem("Usuario"))
+                        $("#btnBuscar").prop('disabled', false);
                     }
                     else {
                         $("#lblError").text("Usuario y/o contraseña incorrectos");
