@@ -11,15 +11,22 @@ namespace WeatherApp.DAL
         public static string setConnection(string uri, string apiname)
         {
             var resultString = "";
-            HttpClient clientHttp = new HttpClient();
-            clientHttp.BaseAddress = new Uri(uri);
-            var request = clientHttp.GetAsync(apiname).Result;
-            if (request.IsSuccessStatusCode)
+            try
             {
-                 resultString = request.Content.ReadAsStringAsync().Result;
+                HttpClient clientHttp = new HttpClient();
+                clientHttp.BaseAddress = new Uri(uri);
+                var request = clientHttp.GetAsync(apiname).Result;
+                if (request.IsSuccessStatusCode)
+                {
+                    resultString = request.Content.ReadAsStringAsync().Result;
 
+                }
+                return resultString;
             }
-            return resultString;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
         

@@ -1,0 +1,20 @@
+2)select nombre,edad from estudiante
+3)select nombre from estudiante where carrera='e Informática'
+4)SELECT nombre FROM estudiante WHERE nombre LIKE 'G%' 
+9)
+SELECT nombre FROM estudiante WHERE edad IN(SELECT min(edad) FROM estudiante)
+11)SELECT * FROM libro WHERE editorial ='ALFA' AND editorial = 'OMEGA'
+
+14)SELECT AVG(edad) as promedio from estudiante
+16)
+USE AmericaVirtual
+GO
+CREATE PROCEDURE sp_getLibros @NombreAutor nvarchar(30)
+AS
+select Titulo, Editorial, Area, Nombre, Nacionalidad from Libro inner join LibAut
+on Libro.IdLibro = LibAut.IdLibro
+inner join Autor on LibAut.IdAutor = Autor.IdAutor
+and Nombre = @NombreAutor
+GO
+
+22)No, ya que null es ausencia de valor, mientras que cero es un valor definido en este caso cero
